@@ -1,0 +1,43 @@
+.nabar-wrapper {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 20;
+	display: none;
+}
+
+body {
+	padding: 65px;
+}
+
+.btn {
+	border-radius: 0;
+    text-align: center;
+    border: 0;
+	
+}
+
+.btn:hover {
+  background: #3071A9
+}
+
+#ytBtn {
+	margin-right: 0.5em;	
+}
+
+.form-control {
+	border-radius: 0;
+}
+
+.options {
+	display: inline;
+}
+
+#example {
+	display: none;
+}
+
+#addRow {
+	display: none;
+}

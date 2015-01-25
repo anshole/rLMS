@@ -13,6 +13,10 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
+# Use Bootstrap SASS
+gem 'bootstrap-sass', '3.2.0.0'
+# Use Bootswatch
+gem 'bootswatch-rails'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -22,6 +26,10 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
+# Add iconv
+gem "iconv", "~> 1.0.3"
+# Include Roo
+gem 'roo', '~> 1.13.2'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

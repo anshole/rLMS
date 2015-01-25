@@ -1,0 +1,36 @@
+Upload sheet:
+
+<%= form_tag({:controller => 'sheets', :action => 'upload'}, {:multipart => true}) do %>
+	<%= file_field_tag :file %>
+	<%= submit_tag "Upload" %>
+<% end %>
+
+<table id="sheets">
+  <tr>
+    <th>SheetID</th>
+    <th>Sheet_Name</th>
+    <th>Sheet_Creator</th>
+    <th>Num_of_COls</th>
+    <th>Num_of_Rows</th>
+  </tr>
+<% @sheets.each do |sheet| %>
+  <tr>
+    <td><%= sheet.id %></td>
+    <td><%= sheet.sheet_name %></td>
+    <td><%= sheet.sheet_creator %></td>
+    <td><%= sheet.num_of_cols %></td>
+    <td><%= sheet.num_of_rows %></td>
+  </tr>
+<% end %>
+</table>
+
+<hr>
+
+<% @sheets.each do |sheet| %>
+  <tr>
+    <td><%= sheet[1] %></td>
+  </tr>
+<% end %>
+
+
+<%= flash[:notice ] %>

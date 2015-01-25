@@ -1,0 +1,30 @@
+Index:
+	Header:
+		Signup Login Blog About
+	Content:
+		Pictures Some Info
+	Footer:
+		Copyright Links
+Signup:
+	Fistname Lastname Category[student, faculty or staff] Email Password
+	Student -> Year, Semester, Branch, Class, Rollno
+	Faculty -> Subjects Position(HOD etc)
+
+Login->Home:
+	   Students
+		Header: 
+			Logout Profile Notices Lectures Schedules
+		Content: 
+			Lectures Notices(#ClassID)
+		Footer: ~
+
+     	   Faculty/Staff:
+		Header:
+			Logout Profile Notifitions/Messages
+		Content:
+			Create Sheet/Notices, Upload Sheet/Notices Previous Notices
+		Footer: ~
+
+Notices->
+	All with tags
+

@@ -46,15 +46,15 @@
 						</button>
 					</form>
 					<ul class="nav navbar-nav navbar-right">
-						<% if !@user.nil? %>
+						<% if !user_signed_in? %>
 						<li>
-							<a  href="#signup" data-toggle="modal" data-target=".bs-modal-sm" >Login</a>
+							<%= link_to('Create account/Sign in', new_user_registration_path)  %>
 						</li>
 						<% end %>
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Your are not logged in<span class="caret"></span></a>
 							<ul class="dropdown-menu" role="menu">
-								<% if !@user.nil?  %>
+								<% if user_signed_in?  %>
 								<li>
 									<a href="#">Set Profile</a>
 								</li>
@@ -65,11 +65,11 @@
 									<a href="#">Assignments</a>
 								</li>
 								<li>
-									<a href="#">Log out</a>
+									<%= link_to('Log out', destroy_user_session_path, :method => :delete)  %>
 								</li>
 								<% elsif %>
 								<li>
-									<a href="#">Log in</a>
+									<%= link_to('Login', new_user_session_path)  %>
 								</li>
 								<% end %>
 								<li class="divider"></li>

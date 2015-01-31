@@ -1,3 +1,14 @@
+<% if !current_user.nil? && current_user.sign_in_count == 1 %>
+
+  <% if current_user.category == "student" %>
+    <%= render "students/partials/first_sign_in_form" %>
+  <% end %>
+
+<% else %>
+  <p>This is not your first sign in.</p>
+<% end %>
+
+
 Upload sheet:
 
 <%= form_tag({:controller => 'sheets', :action => 'upload'}, {:multipart => true}) do %>

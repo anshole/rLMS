@@ -16,6 +16,26 @@ body {
 	border-right: 1px solid #e0e0e0;
 }
 
+#student_form {
+	background-color: #9D5757;
+	margin-left: 10%;
+	margin-right: 10%;
+	padding-top: 2%;
+	padding-bottom: 2%;
+
+	p {
+		margin: 20px 20px 20px 20px;
+	}
+
+	#dismiss_form {
+		margin-left: 90%;
+	}
+
+	#submit_btn {
+		margin-left: 45%;
+	}
+}
+
 #sign_in_form {
 	padding-left: 15% !important;
 }
@@ -28,7 +48,6 @@ body {
 }
 
 .btn:hover {
-  background: #3071A9
 }
 
 #ytBtn {

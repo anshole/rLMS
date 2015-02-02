@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150131111755) do
+ActiveRecord::Schema.define(version: 20150201120815) do
 
   create_table "sheets", force: :cascade do |t|
     t.string   "sheet_name",    limit: 255
@@ -20,6 +20,20 @@ ActiveRecord::Schema.define(version: 20150131111755) do
     t.integer  "num_of_rows",   limit: 4
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+  end
+
+  create_table "students", force: :cascade do |t|
+    t.string   "first_name", limit: 255
+    t.string   "last_name",  limit: 255
+    t.string   "rollno",     limit: 255
+    t.string   "course",     limit: 255
+    t.string   "branch",     limit: 255
+    t.string   "class_name", limit: 255
+    t.string   "year",       limit: 255
+    t.string   "semester",   limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "user_id",    limit: 4
   end
 
   create_table "tables", force: :cascade do |t|

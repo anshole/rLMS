@@ -1,47 +1,55 @@
-<% if !current_user.nil? && current_user.sign_in_count == 1 %>
+<div class="container-fluid">
+  <% if !current_user.nil? && current_user.sign_in_count == 1 %>
+    <% if current_user.category == "student" %>
+      <%= render "students/partials/first_sign_in_form" %>
+    <% end %>
+  <% else %>
+    <div class="alert alert-dismissable alert-info">
+      <button type="button" class="close" data-dismiss="alert">×</button>
+      <p class="text-center">This is not your first sign in.</p>
+    </div>
+  <% end %>
+</div>
 
-  <% if current_user.category == "student" %>
-    <%= render "students/partials/first_sign_in_form" %>
+
+<div class="container-fluid">
+
+  Upload sheet:
+
+  <%= form_tag({:controller => 'sheets', :action => 'upload'}, {:multipart => true}) do %>
+  	<%= file_field_tag :file %>
+  	<%= submit_tag "Upload" %>
   <% end %>
 
-<% else %>
-  <p>This is not your first sign in.</p>
-<% end %>
+  <table id="sheets">
+    <tr>
+      <th>SheetID</th>
+      <th>Sheet_Name</th>
+      <th>Sheet_Creator</th>
+      <th>Num_of_COls</th>
+      <th>Num_of_Rows</th>
+    </tr>
+  <% @sheets.each do |sheet| %>
+    <tr>
+      <td><%= sheet.id %></td>
+      <td><%= sheet.sheet_name %></td>
+      <td><%= sheet.sheet_creator %></td>
+      <td><%= sheet.num_of_cols %></td>
+      <td><%= sheet.num_of_rows %></td>
+    </tr>
+  <% end %>
+  </table>
 
+  <hr>
 
-Upload sheet:
+  <% @sheets.each do |sheet| %>
+    <tr>
+      <td><%= sheet[1] %></td>
+    </tr>
+  <% end %>
 
-<%= form_tag({:controller => 'sheets', :action => 'upload'}, {:multipart => true}) do %>
-	<%= file_field_tag :file %>
-	<%= submit_tag "Upload" %>
-<% end %>
+</div>
 
-<table id="sheets">
-  <tr>
-    <th>SheetID</th>
-    <th>Sheet_Name</th>
-    <th>Sheet_Creator</th>
-    <th>Num_of_COls</th>
-    <th>Num_of_Rows</th>
-  </tr>
-<% @sheets.each do |sheet| %>
-  <tr>
-    <td><%= sheet.id %></td>
-    <td><%= sheet.sheet_name %></td>
-    <td><%= sheet.sheet_creator %></td>
-    <td><%= sheet.num_of_cols %></td>
-    <td><%= sheet.num_of_rows %></td>
-  </tr>
-<% end %>
-</table>
-
-<hr>
-
-<% @sheets.each do |sheet| %>
-  <tr>
-    <td><%= sheet[1] %></td>
-  </tr>
-<% end %>
-
-
-<%= flash[:notice ] %>
+<div class="alert alert-danger">
+    <%= flash[:notice ] %>
+</div>

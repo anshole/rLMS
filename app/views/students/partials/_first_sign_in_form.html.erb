@@ -1,4 +1,65 @@
-<p>Email successfully confirmed! Please fill out the form below to take full advantage of LMS. Without this 
- you will not be able to get notices relevent to your class.
-</p>
+<%= form_for @student ||= Student.new, url: "/students", class: "form" do |f| %>
+
+	<div id="student_form">
+ 
+
+	<button type="button" class="btn btn-danger btn-xs" id="dismiss_form" onclick= '$("#student_form").hide()'><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+	
+	<% if @student.errors.any? %>
+		<% @student.errors.full_messages.each do |msg| %>
+				<ul>
+					<li>
+						<p><%= msg %></p>
+					</li>
+				</ul>
+		<% end %>
+	<% end %>
+
+	<p class="alert alert-info">Email successfully confirmed! Please fill out the form below to take full advantage of LMS. Without this 
+	 you will not be able to get notices relevent to your class.
+	</p>
+
+	<fieldset>
+
+		<div id="row">
+			<div class="col-md-3">
+				<%= f.text_field :first_name, class: "form-control", placeholder: "First name" %><br>
+			</div>
+			<div class="col-md-3">
+				<%= f.text_field :last_name, class: "form-control", placeholder: "Last name"  %><br>
+			</div>
+			<div class="col-md-3">
+				<%= f.text_field :rollno, class: "form-control", placeholder: "Roll number" %><br>
+			</div>
+		</div>
+
+		<div id="row">
+			<div class="col-md-3">
+				<%= f.select(:course, [ 'B.E.', 'M.C.A', 'Other' ], { :prompt => 'Course' }, { :class => 'form-control' }) %><br>
+			</div>
+
+			<div class="col-md-3">
+				<%= f.select(:branch, [ 'CSE', 'ME', 'EE', 'CE' ], { :prompt => 'Branch' }, { :class => 'form-control' }) %><br>
+			</div>
+
+			<div class="col-md-3">
+				<%= f.select(:class_name, [ '1', '2', '3', '4' ], { :prompt => 'Class section' }, { :class => 'form-control' }) %><br>
+			</div>
+		</div>
+	
+		<div id="row">	
+			<div class="col-md-3">
+				<%= f.select(:year, [ '1', '2', '3', '4' ], { :prompt => 'Year' }, { :class => 'form-control' }) %><br>
+			</div>
+			
+			<div class="col-md-3">
+				<%= f.select(:semester, [ '1', '2', '3', '4', '5', '6', '7', '8' ], { :prompt => 'Semester' }, { :class => 'form-control' }) %><br>
+			</div>
+		</div>
+
+		<%= f.submit class: "btn btn-primary", id: "submit_btn" %>
+
+	</div>
+</fieldset>
+<% end %>
 

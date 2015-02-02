@@ -1,13 +1,20 @@
 <div class="container-fluid">
   <% if !current_user.nil? && current_user.sign_in_count == 1 %>
+    <!-- If Student's first log in -->
     <% if current_user.category == "student" %>
       <%= render "students/partials/first_sign_in_form" %>
+    <% end %>
+
+    <!-- If Faculty's first log in -->
+    <% if current_user.category == "faculty" %>
+      <%= render "faculties/faculty_first_sign_in_form" %>
     <% end %>
   <% else %>
     <div class="alert alert-dismissable alert-info">
       <button type="button" class="close" data-dismiss="alert">×</button>
       <p class="text-center">This is not your first sign in.</p>
     </div>
+      <%= render "faculties/faculty_first_sign_in_form" %>
   <% end %>
 </div>
 

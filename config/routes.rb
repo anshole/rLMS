@@ -10,6 +10,7 @@ Rails.application.routes.draw do
    post '/' => 'sheets#upload'
    # get '/students' => 'students#show'
    post '/students' => 'students#new'
+   post '/faculties' => 'faculties#new'
 
   # Example of regular route
   #   get 'products/:id' => 'catalog#view'

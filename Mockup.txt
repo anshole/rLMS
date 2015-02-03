@@ -28,3 +28,8 @@ Login->Home:
 Notices->
 	All with tags
 
+--------------------------------------------
+
+Sheet -> id, name, creator(user_id), cols, rows
+Sheet_cell -> id, sheet_id, cell_row, cell_column, cell_content
+Sheet_tags -> id, sheet_id, tag_name
